@@ -101,6 +101,9 @@
               />
             </svg>
             <span class="settings-tool-tip">Settings</span>
+            <div class="settings">
+              <div></div>
+            </div>
           </div>
           <div class="account">
             <div class="user">
@@ -131,7 +134,7 @@
           <span>All</span>
         </div>
         <div class="tag">
-          <span>Tag 0</span>
+          <span>Tag 1</span>
         </div>
         <div class="scroll-bg">
           <div class="scroll-btn">
@@ -899,11 +902,56 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const container = document.querySelector(".bottom-nav");
+        const root = document.documentElement;
+        const menuToggle = document.querySelector(".ham");
+        const expanded = document.querySelector(".side-nav-expanded");
+        const minimized = document.querySelector(".side-nav");
+        const videos = document.querySelector(".container");
         for (let i = 1; i <= 50; i++) {
           const div = document.createElement("div");
           div.classList.add("tag");
-          div.innerHTML = `<span>Tag ${i}</span>`;
+          div.innerHTML = `<span>Tag ${i + 1}</span>`;
           container.appendChild(div);
+          const div1 = document.createElement("div");
+          div1.classList.add("video");
+          div1.innerHTML = `<div class="img">
+          <span class="duration">00:00:00</span>
+        </div>
+        <div class="info">
+          <div class="user-img"></div>
+          <div class="description">
+            <div class="title">Video Title goes here | Video ${i + 1}</div>
+            <div class="channel">User ${i + 1}</div>
+            <div class="stats">
+              <span class="views">${i + 1} views</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="2%"
+                version="1.1"
+                viewBox="0 0 36 36"
+                width="2%"
+              >
+                <path
+                  class="ytp-svg-shadow"
+                  d="M 27.99,18 A 9.99,9.99 0 1 1 8.00,18 9.99,9.99 0 1 1 27.99,18 z"
+                />
+                <path
+                  class="ytp-svg-fill"
+                  d="M 18,8 C 12.47,8 8,12.47 8,18 8,23.52 12.47,28 18,28 23.52,28 28,23.52 28,18 28,12.47 23.52,8 18,8 z m -4.68,4 4.53,0 c .35,0 .70,.14 .93,.37 l 5.84,5.84 c .23,.23 .37,.58 .37,.93 0,.35 -0.13,.67 -0.37,.90 L 20.06,24.62 C 19.82,24.86 19.51,25 19.15,25 c -0.35,0 -0.70,-0.14 -0.93,-0.37 L 12.37,18.78 C 12.13,18.54 12,18.20 12,17.84 L 12,13.31 C 12,12.59 12.59,12 13.31,12 z m .96,1.31 c -0.53,0 -0.96,.42 -0.96,.96 0,.53 .42,.96 .96,.96 .53,0 .96,-0.42 .96,-0.96 0,-0.53 -0.42,-0.96 -0.96,-0.96 z"
+                  fill-opacity="1"
+                />
+                <path
+                  class="ytp-svg-shadow-fill"
+                  d="M 24.61,18.22 18.76,12.37 C 18.53,12.14 18.20,12 17.85,12 H 13.30 C 12.58,12 12,12.58 12,13.30 V 17.85 c 0,.35 .14,.68 .38,.92 l 5.84,5.85 c .23,.23 .55,.37 .91,.37 .35,0 .68,-0.14 .91,-0.38 L 24.61,20.06 C 24.85,19.83 25,19.50 25,19.15 25,18.79 24.85,18.46 24.61,18.22 z M 14.27,15.25 c -0.53,0 -0.97,-0.43 -0.97,-0.97 0,-0.53 .43,-0.97 .97,-0.97 .53,0 .97,.43 .97,.97 0,.53 -0.43,.97 -0.97,.97 z"
+                  fill="#000"
+                  fill-opacity="0.15"
+                />
+              </svg>
+              <span class="ago">${i + 1} month ago</span>
+            </div>
+          </div>
+        </div>`;
+          videos.appendChild(div1);
         }
         const div = document.createElement("div");
         div.classList.add("empty-space");
@@ -969,11 +1017,6 @@
         function sleep(milliseconds) {
           return new Promise((resolve) => setTimeout(resolve, milliseconds));
         }
-
-        const root = document.documentElement;
-        const menuToggle = document.querySelector(".ham");
-        const expanded = document.querySelector(".side-nav-expanded");
-        const minimized = document.querySelector(".side-nav");
         menuToggle.addEventListener("click", async function () {
           const leftMargin =
             getComputedStyle(root).getPropertyValue("--left-margin");
@@ -994,6 +1037,7 @@
               element.style.minWidth = "40px";
               element.style.minHeight = "40px";
             });
+            localStorage.setItem("menuPreference", "min");
           } else {
             minimized.style.visibility = "hidden";
             await sleep(85);
@@ -1011,59 +1055,41 @@
               element.style.minWidth = "35px";
               element.style.minHeight = "35px";
             });
+            localStorage.setItem("menuPreference", "max");
           }
         });
-        const videos = document.querySelector(".container");
-        for (let i = 1; i <= 50; i++) {
-          const div = document.createElement("div");
-          div.classList.add("video");
-          div.innerHTML = `<div class="img">
-          <span class="duration">00:00:00</span>
-        </div>
-        <div class="info">
-          <div class="user-img"></div>
-          <div class="description">
-            <div class="title">Video Title goes here | Title ${i + 1}</div>
-            <div class="channel">User ${i + 1}</div>
-            <div class="stats">
-              <span class="views">${i + 1} views</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="2%"
-                version="1.1"
-                viewBox="0 0 36 36"
-                width="2%"
-              >
-                <path
-                  class="ytp-svg-shadow"
-                  d="M 27.99,18 A 9.99,9.99 0 1 1 8.00,18 9.99,9.99 0 1 1 27.99,18 z"
-                />
-                <path
-                  class="ytp-svg-fill"
-                  d="M 18,8 C 12.47,8 8,12.47 8,18 8,23.52 12.47,28 18,28 23.52,28 28,23.52 28,18 28,12.47 23.52,8 18,8 z m -4.68,4 4.53,0 c .35,0 .70,.14 .93,.37 l 5.84,5.84 c .23,.23 .37,.58 .37,.93 0,.35 -0.13,.67 -0.37,.90 L 20.06,24.62 C 19.82,24.86 19.51,25 19.15,25 c -0.35,0 -0.70,-0.14 -0.93,-0.37 L 12.37,18.78 C 12.13,18.54 12,18.20 12,17.84 L 12,13.31 C 12,12.59 12.59,12 13.31,12 z m .96,1.31 c -0.53,0 -0.96,.42 -0.96,.96 0,.53 .42,.96 .96,.96 .53,0 .96,-0.42 .96,-0.96 0,-0.53 -0.42,-0.96 -0.96,-0.96 z"
-                  fill-opacity="1"
-                />
-                <path
-                  class="ytp-svg-shadow-fill"
-                  d="M 24.61,18.22 18.76,12.37 C 18.53,12.14 18.20,12 17.85,12 H 13.30 C 12.58,12 12,12.58 12,13.30 V 17.85 c 0,.35 .14,.68 .38,.92 l 5.84,5.85 c .23,.23 .55,.37 .91,.37 .35,0 .68,-0.14 .91,-0.38 L 24.61,20.06 C 24.85,19.83 25,19.50 25,19.15 25,18.79 24.85,18.46 24.61,18.22 z M 14.27,15.25 c -0.53,0 -0.97,-0.43 -0.97,-0.97 0,-0.53 .43,-0.97 .97,-0.97 .53,0 .97,.43 .97,.97 0,.53 -0.43,.97 -0.97,.97 z"
-                  fill="#000"
-                  fill-opacity="0.15"
-                />
-              </svg>
-              <span class="ago">${i + 1} month ago</span>
-            </div>
-          </div>
-        </div>`;
-          videos.appendChild(div);
+        let menuPreference = localStorage.getItem("menuPreference");
+        if (menuPreference === null) {
+          localStorage.setItem("menuPreference", "max");
+          console.log("null");
+          menuPreference = "max";
         }
-        const myDiv = document.querySelector("side-nav-expanded");
-        myDiv.addEventListener("mouseenter", () => {
-          document.html.classList.add("disable-overflow");
+        if (menuPreference === "max") {
+          expanded.style.visibility = "visible";
+        } else {
+          root.style.setProperty("--left-margin", "100px");
+          minimized.style.visibility = "visible";
+          document.querySelectorAll(".video").forEach(function (element) {
+            element.style.minWidth = "340px";
+            element.style.minHeight = "330px";
+          });
+          document.querySelectorAll(".img").forEach(function (element) {
+            element.style.minWidth = "340px";
+            element.style.minHeight = "200px";
+          });
+          document.querySelectorAll(".user-img").forEach(function (element) {
+            element.style.minWidth = "40px";
+            element.style.minHeight = "40px";
+          });
+        }
+        const sideNav = document.querySelector(".side-nav-expanded");
+        sideNav.addEventListener("mouseover", function () {
+          root.style.setProperty("--html-overflow-y", "hidden");
         });
-
-        myDiv.addEventListener("mouseleave", () => {
-          document.html.classList.remove("disable-overflow");
+        sideNav.addEventListener("mouseout", function () {
+          root.style.setProperty("--html-overflow-y", "overlay");
         });
+        for (let i = 1; i <= 50; i++) {}
       });
     </script>
   </body>
