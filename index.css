@@ -1,29 +1,35 @@
 :root {
-  --left-margin: 100px;
+  --left-margin: 260px;
 }
 
 @media (hover: hover) {
-  html {
+  html,
+  .side-nav-expanded {
     scrollbar-width: thin;
     scrollbar-gutter: stable;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
+    overflow-x: hidden;
   }
 
-  html::-webkit-scrollbar {
+  html::-webkit-scrollbar,
+  .side-nav-expanded::-webkit-scrollbar {
     width: 8px;
   }
 
-  html::-webkit-scrollbar-track {
+  html::-webkit-scrollbar-track,
+  .side-nav-expanded::-webkit-scrollbar-track {
     background-color: rgb(15, 15, 15);
   }
 
-  html::-webkit-scrollbar-thumb {
-    background-color: rgb(170, 170, 170);
+  html::-webkit-scrollbar-thumb,
+  .side-nav-expanded::-webkit-scrollbar-thumb {
+    background-color: rgb(113, 113, 113);
     border-radius: 10px;
   }
 
-  html::-webkit-scrollbar-thumb:hover {
+  html::-webkit-scrollbar-thumb:hover,
+  .side-nav-expanded::-webkit-scrollbar-thumb:hover {
     background-color: rgb(113, 113, 113);
   }
 
@@ -268,6 +274,11 @@
     margin-bottom: 2px;
     font-size: small;
     font-weight: bold;
+    text-wrap: nowrap;
+  }
+
+  .user {
+    padding-right: 7px;
   }
 
   .user svg {
@@ -403,7 +414,7 @@
     min-height: 100%;
     z-index: 1;
     background: rgb(15, 15, 15);
-    visibility: visible;
+    visibility: hidden;
   }
 
   .side-nav div {
@@ -431,5 +442,167 @@
     font-size: x-small;
     font-weight: 400;
     color: white;
+  }
+
+  .side-nav-expanded {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 94%;
+    z-index: 3;
+    background: rgb(15, 15, 15);
+    visibility: visible;
+    overflow-y: hidden;
+  }
+  .side-nav-expanded:hover {
+    overflow-y: scroll;
+  }
+  .side-nav-expanded:hover body {
+    overflow-y: hidden;
+  }
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 10px;
+    min-width: 200px;
+    transition: all 0.1s ease-in-out;
+    border-bottom: 1px solid rgb(63, 63, 63);
+    padding-bottom: 10px;
+  }
+  .side-nav-expanded div:first-child div:first-child {
+    background-color: rgb(39, 39, 39);
+  }
+  .menu div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px 5px;
+    min-width: 200px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .menu div svg {
+    fill: white;
+    min-width: 25px;
+    min-height: 25px;
+    padding-left: 10px;
+  }
+  .menu div span {
+    font-weight: 400;
+    color: white;
+    padding-left: 25px;
+    font-size: 14px;
+  }
+  .menu div:hover {
+    background-color: rgb(39, 39, 39);
+  }
+  .menu div:active {
+    background-color: rgb(61, 61, 61);
+  }
+
+  .menu- {
+    margin-top: 0;
+    padding-bottom: 10px;
+  }
+  #three {
+    padding-bottom: 15px;
+  }
+  #three span:nth-child(1) {
+    width: 180px;
+    color: white;
+    font-size: 14px;
+    padding: 5px 0px 12px 15px;
+  }
+  .account2 {
+    margin-right: 70px;
+  }
+
+  .explore {
+    margin: -5px 125px 5px 0px;
+    font-size: 16px;
+    color: white;
+  }
+  .first-div {
+    margin-top: 5px !important;
+  }
+
+  .yt {
+    margin-right: 30px;
+    font-size: 16px;
+    color: white;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 20px;
+    width: 100%;
+  }
+  .video {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    width: 310px;
+    height: 320px;
+  }
+  .img {
+    background: rgb(63, 63, 63);
+    width: 310px;
+    height: 175px;
+    position: relative;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  .duration {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    background-color: rgba(13, 13, 13, 0.9);
+    border-radius: 4px;
+    padding: 0.5px 6px 3px 6px;
+    bottom: 0;
+    right: 0;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+  .info {
+    display: flex;
+  }
+  .user-img {
+    min-width: 35px;
+    width: 35px;
+    height: 35px;
+    margin: 0px 10px 0px 6px;
+    border-radius: 50%;
+    background: rgb(63, 63, 63);
+  }
+  .title {
+    font-size: large;
+    padding-bottom: 2px;
+    color: white;
+    font-weight: 500;
+  }
+  .stats,
+  .channel {
+    color: rgb(131, 131, 131);
+    font-weight: 500;
+  }
+  .stats svg {
+    fill: rgb(131, 131, 131);
+    padding-left: 3px;
+    padding-bottom: 2px;
+  }
+  .disable-overflow {
+    overflow-y: hidden;
   }
 }
