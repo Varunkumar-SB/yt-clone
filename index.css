@@ -1,6 +1,16 @@
 :root {
   --left-margin: 260px;
   --html-overflow-y: overlay;
+  --primary-color: rgb(15, 15, 15);
+  --secondary-color: white;
+  --fade-1: rgb(39, 39, 39);
+  --fade-2: rgb(61, 61, 61);
+  --fade-3: rgb(40, 40, 40);
+  --fade-4: rgb(83, 83, 83);
+  --fade-5: rgb(18, 18, 18);
+  --fade-6: rgb(34, 34, 34);
+  --fade-7: rgb(39, 55, 79);
+  --fade-8: rgb(63, 63, 63);
 }
 
 @media (hover: hover) {
@@ -25,7 +35,7 @@
 
   html::-webkit-scrollbar-track,
   .side-nav-expanded::-webkit-scrollbar-track {
-    background-color: rgb(15, 15, 15);
+    background-color: var(--primary-color);
   }
 
   html::-webkit-scrollbar-thumb,
@@ -41,7 +51,7 @@
 
   body {
     margin: 0;
-    background: rgb(15, 15, 15);
+    background: var(--primary-color);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
       sans-serif;
@@ -57,7 +67,7 @@
     height: 105px;
     width: 100%;
     z-index: 1;
-    background: rgb(15, 15, 15);
+    background: var(--primary-color);
   }
 
   .top-nav {
@@ -80,7 +90,7 @@
     justify-content: center;
     height: 40px;
     min-width: 40px;
-    color: white;
+    color: var(--secondary-color);
     margin-right: 15px;
     border-radius: 50%;
     cursor: pointer;
@@ -88,11 +98,11 @@
   }
 
   .ham:hover {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--fade-1);
   }
 
   .ham:active {
-    background-color: rgb(61, 61, 61);
+    background-color: var(--fade-2);
   }
 
   .logo {
@@ -116,11 +126,11 @@
   }
 
   .search-input {
-    background-color: rgb(18, 18, 18);
+    background-color: var(--fade-5);
     border-radius: 20px 0px 0px 20px;
     border: 1.5px solid rgb(48, 48, 48);
     height: 25px;
-    color: white;
+    color: var(--secondary-color);
     min-width: 0;
     width: 100%;
     padding: 5px 15px;
@@ -138,11 +148,11 @@
     justify-content: center;
     min-width: 50px;
     height: 35px;
-    background-color: rgb(34, 34, 34);
+    background-color: var(--fade-6);
     border-radius: 0px 20px 20px 0px;
     border: 1.5px solid rgb(48, 48, 48);
     border-left: none;
-    color: white;
+    color: var(--secondary-color);
     margin-right: 15px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
@@ -150,7 +160,7 @@
   }
 
   .search-icon svg {
-    fill: white;
+    fill: var(--secondary-color);
   }
 
   .search-icon:hover .search-tool-tip {
@@ -170,44 +180,25 @@
     visibility: hidden;
   }
 
-  .settings {
-    position: absolute;
-    margin-top: 480px;
-    margin-right: 260px;
-    background-color: rgb(40, 40, 40);
-    color: white;
-    font-size: small;
-    padding: 7.5px;
-    border-radius: 10px;
-    cursor: default;
-    min-width: 275px;
-    min-height: 420px;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    visibility: hidden;
-  }
-
   .mic-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(39, 39, 39);
+    background-color: var(--fade-1);
     height: 40px;
     min-width: 40px;
-    color: white;
+    color: var(--secondary-color);
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
   }
 
   .mic-icon svg {
-    fill: white;
+    fill: var(--secondary-color);
   }
 
   .mic-icon:hover {
-    background-color: rgb(61, 61, 61);
+    background-color: var(--fade-2);
   }
 
   .mic-icon:active {
@@ -245,7 +236,7 @@
     justify-content: center;
     min-width: 40px;
     height: 40px;
-    color: white;
+    color: var(--secondary-color);
     border-radius: 50%;
     cursor: pointer;
     margin-right: 5px;
@@ -253,7 +244,7 @@
   }
 
   .account-settings svg {
-    fill: white;
+    fill: var(--secondary-color);
   }
 
   .account-settings:active {
@@ -277,6 +268,121 @@
     visibility: visible;
   }
 
+  .settings {
+    position: absolute;
+    margin-top: 460px;
+    margin-right: 110px;
+    background-color: var(--fade-3);
+    color: var(--secondary-color);
+    font-size: small;
+    border-radius: 10px;
+    cursor: default;
+    min-width: 300px;
+    min-height: 397.5px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    padding-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .settings-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+  }
+  .settings-btn svg {
+    min-width: 23px;
+    min-height: 23px;
+    padding: 0px 15px;
+    fill: var(--secondary-color);
+  }
+  .settings-btn svg:nth-last-child(1) {
+    position: absolute;
+    right: 0;
+  }
+  .settings-btn span {
+    text-wrap: nowrap;
+    font-size: 15px;
+  }
+  .settings-btn:hover {
+    background-color: var(--fade-2);
+  }
+  .settings-btn:active {
+    background-color: var(--fade-4);
+  }
+  #settings {
+    padding: 10px 0px;
+    margin: 5px 0px;
+    border-top: 1px solid var(--fade-4);
+    border-bottom: 1px solid var(--fade-4);
+  }
+  .appearance {
+    position: absolute;
+    margin-top: 270px;
+    margin-right: 110px;
+    background-color: var(--fade-3);
+    color: var(--secondary-color);
+    font-size: small;
+    border-radius: 10px;
+    cursor: default;
+    min-width: 300px;
+    min-height: 220px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .appearance div:first-child {
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--fade-4);
+  }
+  .appearance div:first-child:hover {
+    background-color: transparent;
+  }
+  .appearance div:first-child span {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .appearance div:first-child svg {
+    margin-top: 5px;
+    padding: 0px 10px;
+    min-width: 10px;
+    min-height: 50px;
+    transform: scale(0.7);
+    border-radius: 50%;
+  }
+  .appearance div:first-child:hover svg {
+    background-color: var(--fade-4);
+  }
+  .appearance p {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgb(140, 140, 140);
+    position: absolute;
+    margin-top: 65px;
+    margin-right: 60px;
+  }
+  .appearance div:nth-child(3) {
+    padding: 5px 0px;
+  }
+  .appearance div:nth-child(3):hover {
+    background-color: transparent;
+  }
+  .appearance div:last-child {
+    margin-bottom: 10px;
+  }
+  .default-tick,
+  .dark-tick,
+  .light-tick {
+    opacity: 0%;
+  }
+
   .account {
     display: flex;
     align-items: center;
@@ -290,8 +396,8 @@
   }
 
   .account:hover {
-    background-color: rgb(39, 55, 79);
-    border: 1.5px solid rgb(39, 55, 79);
+    background-color: var(--fade-7);
+    border: 1.5px solid var(--fade-7);
     cursor: pointer;
   }
 
@@ -324,8 +430,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(39, 39, 39);
-    color: white;
+    background-color: var(--fade-1);
+    color: var(--secondary-color);
     padding: 5px 10px;
     border-radius: 7.5px;
     margin-right: 12.5px;
@@ -335,12 +441,12 @@
   }
 
   .tag:hover {
-    background-color: rgb(61, 61, 61);
+    background-color: var(--fade-2);
   }
 
   .tag.active {
-    background-color: white;
-    color: black;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
   }
 
   .tag span {
@@ -352,11 +458,11 @@
   .scroll-fg {
     width: 50px;
     height: 50px;
-    background: rgb(15, 15, 15);
+    background: var(--primary-color);
     background: linear-gradient(
       90deg,
-      rgba(15, 15, 15, 1) 0%,
-      rgba(15, 15, 15, 1) 80%,
+      var(--primary-color) 0%,
+      var(--primary-color) 80%,
       rgba(0, 0, 0, 0) 100%
     );
     display: flex;
@@ -376,8 +482,8 @@
     background: linear-gradient(
       90deg,
       rgba(0, 0, 0, 0) 0%,
-      rgba(15, 15, 15, 1) 20%,
-      rgba(15, 15, 15, 1) 100%
+      var(--primary-color) 20%,
+      var(--primary-color) 100%
     );
     display: flex;
     align-items: center;
@@ -399,18 +505,18 @@
 
   .scroll-btn:hover {
     border-radius: 50%;
-    background-color: rgb(63, 63, 63);
+    background-color: var(--fade-8);
   }
 
   .scroll-btn svg {
-    fill: white;
+    fill: var(--secondary-color);
   }
 
   .scroll-btn span {
     position: absolute;
     margin-top: 90px;
     background-color: rgb(91, 91, 91);
-    color: white;
+    color: var(--primary-color);
     font-size: small;
     padding: 7.5px;
     border-radius: 3px;
@@ -440,7 +546,7 @@
     flex-direction: column;
     min-height: 100%;
     z-index: 1;
-    background: rgb(15, 15, 15);
+    background: var(--primary-color);
     visibility: hidden;
   }
 
@@ -456,19 +562,19 @@
     transition: all 0.1s ease-in-out;
   }
   .side-nav div:hover {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--fade-1);
   }
   .side-nav div:active {
-    background-color: rgb(61, 61, 61);
+    background-color: var(--fade-2);
   }
   .side-nav div svg {
-    fill: white;
+    fill: var(--secondary-color);
     margin-bottom: 3px;
   }
   .side-nav div span {
     font-size: x-small;
     font-weight: 400;
-    color: white;
+    color: var(--secondary-color);
   }
 
   .side-nav-expanded {
@@ -480,7 +586,7 @@
     flex-direction: column;
     height: 94%;
     z-index: 3;
-    background: rgb(15, 15, 15);
+    background: var(--primary-color);
     visibility: hidden;
     overflow-y: hidden;
   }
@@ -499,7 +605,7 @@
     padding-bottom: 10px;
   }
   .side-nav-expanded div:first-child div:first-child {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--fade-1);
   }
   .menu div {
     display: flex;
@@ -513,22 +619,22 @@
     cursor: pointer;
   }
   .menu div svg {
-    fill: white;
+    fill: var(--secondary-color);
     min-width: 25px;
     min-height: 25px;
     padding-left: 10px;
   }
   .menu div span {
     font-weight: 400;
-    color: white;
+    color: var(--secondary-color);
     padding-left: 25px;
     font-size: 14px;
   }
   .menu div:hover {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--fade-1);
   }
   .menu div:active {
-    background-color: rgb(61, 61, 61);
+    background-color: var(--fade-2);
   }
 
   .menu- {
@@ -540,7 +646,7 @@
   }
   #three span:nth-child(1) {
     width: 180px;
-    color: white;
+    color: var(--secondary-color);
     font-size: 14px;
     padding: 5px 0px 12px 15px;
   }
@@ -551,7 +657,7 @@
   .explore {
     margin: -5px 125px 5px 0px;
     font-size: 16px;
-    color: white;
+    color: var(--secondary-color);
   }
   .first-div {
     margin-top: 5px !important;
@@ -560,7 +666,7 @@
   .yt {
     margin-right: 30px;
     font-size: 16px;
-    color: white;
+    color: var(--secondary-color);
   }
 
   .container {
@@ -577,7 +683,7 @@
     height: 320px;
   }
   .img {
-    background: rgb(63, 63, 63);
+    background: var(--fade-8);
     width: 310px;
     height: 175px;
     position: relative;
@@ -610,12 +716,12 @@
     height: 35px;
     margin: 0px 10px 0px 6px;
     border-radius: 50%;
-    background: rgb(63, 63, 63);
+    background: var(--fade-8);
   }
   .title {
     font-size: large;
     padding-bottom: 2px;
-    color: white;
+    color: var(--secondary-color);
     font-weight: 500;
   }
   .stats,
