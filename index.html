@@ -83,7 +83,10 @@
     </div>
     <script>
       document.querySelector(".proceed").addEventListener("click", function () {
-        window.location.href = "assets/main.html";
+        if ("ontouchstart" in window) {
+        } else {
+          window.location.href = "assets/main.html";
+        }
       });
       document.querySelector(".github").addEventListener("click", function () {
         window.open("https://github.com/Varunkumar-SB");
