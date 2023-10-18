@@ -10,15 +10,6 @@ body {
   user-select: none;
 }
 
-.welcome {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
-
 .project {
   display: flex;
   flex-direction: column;
@@ -29,7 +20,6 @@ body {
   background-color: rgb(63, 63, 63);
   border-radius: 20px;
   width: 320px;
-  height: 550px;
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -39,8 +29,18 @@ body {
   color: white;
   font-weight: 500;
 }
+
 .project div:nth-child(2) {
-  margin-top: 15px;
+  width: 320px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.proceed {
+  margin-top: 0 !important;
   background-color: rgb(255, 49, 32);
   width: 120px;
   height: 40px;
@@ -54,7 +54,7 @@ body {
   cursor: pointer;
 }
 
-.project div:nth-child(2) svg {
+.proceed svg {
   padding-left: 7.5px;
 }
 
@@ -84,7 +84,16 @@ body {
 }
 
 @media (hover: hover) {
-  .project div:nth-child(2):hover {
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .proceed:hover {
     background-color: rgb(255, 83, 48);
   }
 
@@ -104,10 +113,16 @@ body {
 
 @media (hover: none) {
   body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin-top: 1vh;
   }
 
   .project {
@@ -115,11 +130,11 @@ body {
     font-size: 15px;
   }
 
-  .project div:nth-child(2):active {
+  .proceed:active {
     background-color: rgb(255, 83, 48);
   }
 
-  .project div:nth-child(2) {
+  .proceed {
     margin-top: 10px;
   }
 
